@@ -5,6 +5,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.Arrays;
@@ -25,6 +27,13 @@ public class AnimationView extends View {
 
         mDrawable = new BootAnimationDrawable(Arrays.asList(Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE));
         mDrawable.setCallback(this);
+        setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.d("lolz", " x:" + event.getX() + " y:" + event.getY());
+                return false;
+            }
+        });
     }
 
     @Override
