@@ -5,4 +5,9 @@
         android:id="@+id/show_path"
         android:title="@string/show_path"
         android:showAsAction="never"/>
+    <item
+        android:checkable="true"
+        android:id="@+id/show_range"
+        android:title="@string/show_range"
+        android:showAsAction="never"/>
 </menu>

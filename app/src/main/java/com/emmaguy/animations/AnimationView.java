@@ -44,6 +44,10 @@ public class AnimationView extends View {
         mDrawable.setShouldDrawPath(shouldDrawPath);
     }
 
+    public void setRange(float range) {
+        mDrawable.setRange(range);
+    }
+
     @Override
     protected void onVisibilityChanged(View changedView, int visibility) {
         super.onVisibilityChanged(changedView, visibility);

@@ -42,6 +42,7 @@ public class BootAnimationDrawable extends Drawable implements Animatable, Value
     private float mCenterY;
     private int mWidth;
     private int mHeight;
+    private float mRange;
 
     public BootAnimationDrawable(List<Integer> circles) {
         mLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -171,14 +172,13 @@ public class BootAnimationDrawable extends Drawable implements Animatable, Value
     }
 
     private int scaleCircleIfCloseToCenter() {
-        float range = mWidth / 4.0f;
         int circleRadius = CIRCLE_RADIUS;
 
-        if (withinRangeOf(mPos[0], mCenterX, range) && withinRangeOf(mPos[1], mCenterY, range)) {
+        if (withinRangeOf(mPos[0], mCenterX, mRange) && withinRangeOf(mPos[1], mCenterY, mRange)) {
             // scale down so it appears to be going into the distance
             float difference = Math.min(Math.abs(mPos[0] - mCenterX), Math.abs(mPos[1] - mCenterY));
 
-            circleRadius *= Math.max(difference * 2 / range, 0.3f);
+            circleRadius *= Math.max(difference * 2 / mRange, 0.3f);
         }
         return Math.min(CIRCLE_RADIUS, circleRadius);
     }
@@ -209,5 +209,9 @@ public class BootAnimationDrawable extends Drawable implements Animatable, Value
     @Override
     public void onAnimationUpdate(ValueAnimator animation) {
         invalidateSelf();
+    }
+
+    public void setRange(float range) {
+        mRange = range;
     }
 }
