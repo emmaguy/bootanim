@@ -36,6 +36,14 @@ public class AnimationView extends View {
         });
     }
 
+    public boolean getShouldDrawPath() {
+        return mDrawable.getShouldDrawPath();
+    }
+
+    public void setShouldDrawPath(boolean shouldDrawPath) {
+        mDrawable.setShouldDrawPath(shouldDrawPath);
+    }
+
     @Override
     protected void onVisibilityChanged(View changedView, int visibility) {
         super.onVisibilityChanged(changedView, visibility);

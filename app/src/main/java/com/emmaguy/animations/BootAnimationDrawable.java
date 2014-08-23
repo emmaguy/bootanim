@@ -21,7 +21,7 @@ public class BootAnimationDrawable extends Drawable implements Animatable, Value
     private static final int CIRCLE_RADIUS = 25;
     private static final long ANIMATION_DURATION = 6000;
 
-    private final boolean mShouldDrawPath = false;
+    private boolean mShouldDrawPath = false;
 
     private final Matrix mMatrix;
     private final Paint mLinePaint;
@@ -80,6 +80,14 @@ public class BootAnimationDrawable extends Drawable implements Animatable, Value
         mCirclePositionAnimator.setRepeatMode(ValueAnimator.RESTART);
         mCirclePositionAnimator.setRepeatCount(ValueAnimator.INFINITE);
         mCirclePositionAnimator.setInterpolator(new LinearInterpolator());
+    }
+
+    public boolean getShouldDrawPath() {
+        return mShouldDrawPath;
+    }
+
+    public void setShouldDrawPath(boolean shouldDrawPath) {
+        mShouldDrawPath = !shouldDrawPath;
     }
 
     @Override
